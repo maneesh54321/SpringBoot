@@ -1,0 +1,23 @@
+<div class="row m-3">
+	<div class="col-sm-12">
+		<form ng-submit="updateTodo()">
+			<div class="form-group">
+				<label for="description">
+					Description
+				</label>
+				<input type="text" class="form-control" id="description" ng-model="todo.description">
+			</div>
+			<div class="form-group">
+				<label for="completed">
+					Completed
+				</label>
+				<select id="completed" class="form-control" ng-model="todo.status">
+					<option value="Pending">Pending</option>
+					<option value="Completed">Completed</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-success">Update</button>
+			<button ui-sref="todos.add()" class="btn btn-danger">Cancel</button>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+.height100 {
+	height:100%;
+}
+
+a {
+	cursor: pointer
+}
+
+body {
+	background: url(./img/todo-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.login-box {
+	opacity:0.95
+}
+
+.alert {
+  margin-bottom: 1px;
+  height: 30px;
+  line-height:30px;
+  padding:0px 10px;
+}

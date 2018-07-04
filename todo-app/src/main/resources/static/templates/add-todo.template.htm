@@ -1,0 +1,11 @@
+<div class="row m-3">
+	<form ng-submit="addTodo()"
+		class="d-flex flex-row justify-content-between"
+		name="addTodoForm">
+		<label for="description" class="col-form-label ml-3">Description</label>
+		<input type="text" class="form-control mx-5" id="description"
+			name="description" ng-model="todo.description" required>
+		<button type="submit" class="btn btn-success mr-3"
+			ng-disabled="addTodoForm.description.$invalid">Add Todo</button>
+	</form>
+</div>
