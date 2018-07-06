@@ -8,7 +8,7 @@
 
 		var _authenticated = false;
 
-		return { authenticate, isAuthenticated };
+		return { authenticate, logout, isAuthenticated };
 
 		function authenticate(credentials, callback) {
 			var headers = credentials ? { authorization: "Basic " + btoa(credentials.username + ":" + credentials.password) } : {};
@@ -24,6 +24,13 @@
 				console.log('failed to login: ' + err);
 				_authenticated = false;
 				callback && callback(_authenticated);
+			});
+		}
+		
+		function logout(){
+			return $http.post('logout', {}).then(function(res) {
+				_authenticated = false;
+				return;
 			});
 		}
 

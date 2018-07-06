@@ -23,6 +23,7 @@ public class TodoController {
 	
 	@PostMapping("/todos")
 	public void addTodo(@RequestBody Todo todo) {
+		todo.setCompleted(false);
 		repository.save(todo);
 	}
 	

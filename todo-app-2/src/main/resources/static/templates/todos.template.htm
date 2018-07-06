@@ -1,0 +1,28 @@
+<form class="form-inline my-3" ng-submit="todosCtrl.addTodo()" name="addForm">
+    <div class="form-group ml-3">
+        <label for="description">
+            Description
+        </label>
+        <input type="text" class="form-control mx-3" ng-model="todosCtrl.todo.description" name="description" required>
+    </div>
+    <button type="submit" class="btn btn-success" ng-disabled="addForm.description.$invalid">Add Todo</button>
+</form>
+<table class="table table-hover table-bordered">
+    <thead>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Completed At</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="todo in todosCtrl.todos">
+            <td>{{todo.description}}</td>
+            <td>{{todo.completed?'Completed':'Pending'}}</td>
+            <td>{{todo.completedAt | date}}</td>
+            <td>
+                <button class="btn btn-sm btn-primary" ui-sref="home.updateTodo({id:$index})">Edit</button>
+                <button class="btn btn-sm btn-warning" ng-click="todosCtrl.deleteTodo(todo.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

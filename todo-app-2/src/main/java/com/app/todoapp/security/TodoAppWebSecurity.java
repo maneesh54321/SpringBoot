@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 public class TodoAppWebSecurity extends WebSecurityConfigurerAdapter{
@@ -28,6 +29,7 @@ public class TodoAppWebSecurity extends WebSecurityConfigurerAdapter{
 			.authorizeRequests()
 				.antMatchers("/index.html","/","/templates/**").permitAll()
 				.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-				.anyRequest().authenticated();
+				.anyRequest().authenticated()
+			.and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 	}
 }
