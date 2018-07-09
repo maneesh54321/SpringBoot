@@ -2,7 +2,7 @@
 
 	"use strict";
 
-	var todoApp = angular.module('todo-app');
+	var todoApp = angular.module('todo.app');
 
 	todoApp.factory('authService', ['$http', function ($http) {
 

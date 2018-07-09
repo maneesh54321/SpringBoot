@@ -1,14 +1,15 @@
-<form ng-submit="updateTodo()">
+<form ng-submit="updateTodoCtrl.updateTodo()">
     <div class="form-group">
         <label for="description">Description</label>
         <input type="text" id="description" class="form-control" ng-model="updateTodoCtrl.todo.description" required>
     </div>
     <div class="form-group">
         <label for="status">Status</label>
-        <select name="completed" id="completed" class="form-control" ng-model="updateTodoCtrl.todo.completed">
-            <option value="true">Completed</option>
-            <option value="false">Pending</option>
+        <select name="status" id="status" class="form-control" ng-model="updateTodoCtrl.todo.completed">
+            <option ng-value="true">Completed</option>
+            <option ng-value="false">Pending</option>
         </select>
     </div>
     <button type="submit" class="btn btn-success">Update</button>
+    <button type="button" class="btn btn-default ml-3" ui-sref="home.todos()">Cancel</button>
 </form>

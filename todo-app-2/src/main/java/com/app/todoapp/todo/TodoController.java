@@ -1,5 +1,8 @@
 package com.app.todoapp.todo;
 
+import java.sql.Date;
+import java.time.Instant;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +32,11 @@ public class TodoController {
 	
 	@PutMapping("/todos")
 	public void updateTodo(@RequestBody Todo todo) {
+		if(todo.getCompleted()) {
+			todo.setCompletedAt(new Date(Calendar.getInstance().getTimeInMillis()));
+		} else {
+			todo.setCompletedAt(null);
+		}
 		repository.save(todo);
 	}
 	
